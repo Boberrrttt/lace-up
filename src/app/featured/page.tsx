@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { FeaturedList } from "./sections/featured-list.section";
 import { getProductList } from "../products/service";
+import { FooterSection } from "@/components/footer.section";
 
 export const revalidate = 60;
 
@@ -32,6 +33,7 @@ export default async function Page() {
 
       {/* Featured Products Grid */}
       <FeaturedList data={data} />
+      <FooterSection />
     </div>
   );
 }

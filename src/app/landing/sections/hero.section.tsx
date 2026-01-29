@@ -67,7 +67,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex items-center justify-center h-full">
+      <div className="relative z-10 flex items-center justify-center h-full -mt-16">
         <div className="text-center text-white px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Animated Title */}
@@ -110,7 +110,7 @@ export function HeroSection() {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex space-x-2">
           {slides.map((_, index) => (
             <button
@@ -124,10 +124,10 @@ export function HeroSection() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
