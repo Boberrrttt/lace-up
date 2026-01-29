@@ -26,6 +26,13 @@ export async function getProductList(cursor?: string) {
               width
               height
             }
+            variants(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
+            }
           }
         }
       }

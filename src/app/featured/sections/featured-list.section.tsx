@@ -135,19 +135,18 @@ export function FeaturedList(props: Props) {
           }`}
         >
           {paginatedProducts.map(({ node }, index) => (
-            <Card key={node.handle} className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+            <Link key={node.handle} href={`/products/${node.handle}`} className="group flex">
+            <Card key={node.handle} className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 py-0 w-80 gap-0">
               {/* Image Container */}
-              <div className="relative h-80 overflow-hidden bg-gray-100">
-                <Link href={`/products/${node.handle}`}>
+              <div className="relative overflow-hidden bg-gray-100">
                   <Image
                     src={node.featuredImage?.url || "/placeholder-image.jpg"}
                     alt={node.featuredImage?.altText || "Product image"}
-                    height={320}
-                    width={320}
+                    height={node.featuredImage?.height as number || 1865}
+                    width={node.featuredImage?.width as number || 320}
                     loading="eager"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-auto object-contain group-hover:scale-110 transition-transform duration-700"
                   />
-                </Link>
 
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-red-500 text-white text-xs font-semibold">
@@ -164,20 +163,6 @@ export function FeaturedList(props: Props) {
                   </Button>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition">
-                  <Button 
-                    className="w-full bg-black text-white hover:bg-gray-800 rounded-full font-semibold"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      // TODO: Implement add to cart when variant IDs are available
-                      console.log("Add to cart clicked for:", node.title);
-                    }}
-                  >
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                    Quick Add
-                  </Button>
-                </div>
               </div>
 
               {/* Content */}
@@ -219,6 +204,7 @@ export function FeaturedList(props: Props) {
                 </div>
               </CardContent>
             </Card>
+            </Link>
           ))}
         </div>
 

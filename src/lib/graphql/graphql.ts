@@ -9176,7 +9176,7 @@ export type ProductListQueryVariables = Exact<{
 }>;
 
 
-export type ProductListQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean }, edges: Array<{ __typename?: 'ProductEdge', cursor: string, node: { __typename?: 'Product', handle: string, title: string, priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }, featuredImage?: { __typename?: 'Image', url: any, altText?: string | null, width?: number | null, height?: number | null } | null } }> } };
+export type ProductListQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean }, edges: Array<{ __typename?: 'ProductEdge', cursor: string, node: { __typename?: 'Product', handle: string, title: string, priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }, featuredImage?: { __typename?: 'Image', url: any, altText?: string | null, width?: number | null, height?: number | null } | null, variants: { __typename?: 'ProductVariantConnection', edges: Array<{ __typename?: 'ProductVariantEdge', node: { __typename?: 'ProductVariant', id: string } }> } } }> } };
 
 export class TypedDocumentString<TResult, TVariables>
   extends String
@@ -9268,6 +9268,13 @@ export const ProductListDocument = new TypedDocumentString(`
           altText
           width
           height
+        }
+        variants(first: 1) {
+          edges {
+            node {
+              id
+            }
+          }
         }
       }
     }

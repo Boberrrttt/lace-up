@@ -36,7 +36,7 @@ export function ProductSingle(props: Props) {
                   alt={currentImage.altText || ""}
                   width={currentImage.width as number}
                   height={currentImage.height as number}
-                  className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                  className="h-full w-full object-contain object-center transition-transform duration-700 hover:scale-105"
                   priority
                 />
                 

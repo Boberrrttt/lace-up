@@ -36,7 +36,7 @@ export function useVariantSelector(product: Product) {
 
   const options = useMemo(() => {
     const computedOptions: Options = [];
-    let availableVariants = product.variants.nodes;
+    let availableVariants = product!.variants?.nodes;
 
     for (let i = 0; i < product.options.length; i++) {
       const productOption = product.options[i];

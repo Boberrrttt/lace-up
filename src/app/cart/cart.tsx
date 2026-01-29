@@ -55,7 +55,7 @@ export function Cart() {
         <div className="mb-8">
           <h1 className="text-3xl font-black tracking-tighter mb-2">
             SHOPPING
-            <span className="text-yellow-500"> CART</span>
+            <span className="text-yellow-500">CART</span>
           </h1>
           <p className="text-gray-600">
             {cart.totalQuantity} {cart.totalQuantity === 1 ? 'item' : 'items'} in your cart
