@@ -13,8 +13,7 @@ import { Input } from "@esmate/shadcn/components/ui/input";
 const mainMenuItems: { text: string; href: string }[] = [
   { text: "Featured", href: "/featured" },  
   { text: "Collections", href: "/products" },
-  { text: "Mens", href: "/new" },
-  { text: "Womens", href: "/sale" },
+  { text: "About", href: "/about" },
 ];
 
 export function Header() {
