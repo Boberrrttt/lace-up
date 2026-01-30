@@ -14,7 +14,7 @@ export function HeroSection() {
       subtitle: "EXcellence",
       description: "Discover the latest collection of premium sneakers designed for athletes who demand the best.",
       cta: "Shop Now",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+      videoUrl: "/Shoe_Ad_Video_Generation.mp4"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export function HeroSection() {
       subtitle: "POTENTIAL",
       description: "Engineered for performance, crafted for style. Elevate your game with our cutting-edge footwear.",
       cta: "Explore Collection",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+      videoUrl: "/Sneaker_Ad_Video_Generation.mp4"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export function HeroSection() {
       subtitle: "LIMITS",
       description: "Push boundaries and break records with sneakers that combine innovation with iconic design.",
       cta: "New Arrivals",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
+      videoUrl: "/Video_of_Shoes_Generated.mp4"
     }
   ];
 
