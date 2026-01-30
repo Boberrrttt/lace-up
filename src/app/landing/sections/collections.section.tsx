@@ -2,7 +2,7 @@
 
 import { Button } from "@esmate/shadcn/components/ui/button";
 import { Badge } from "@esmate/shadcn/components/ui/badge";
-import { ArrowRight, Loader2, TrendingUp } from "@esmate/shadcn/pkgs/lucide-react";
+import { ArrowRight, Loader2, TrendingUp, Sparkles } from "@esmate/shadcn/pkgs/lucide-react";
 import Link from "next/link";
 import { getCollections } from "../service";
 import { useRequest } from "@esmate/react/ahooks";
@@ -16,7 +16,7 @@ export function CollectionsSection() {
   const collections = request.data?.edges || [];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section className="py-24 bg-gray-50">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -28,9 +28,11 @@ export function CollectionsSection() {
         {/* Section Header */}
         <div className="text-center mb-20 px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 mb-6">
+            <Sparkles className="h-6 w-6 text-yellow-400" />  
             <Badge className="bg-black text-white px-4 py-2 text-sm font-semibold rounded-full">
               CURATED COLLECTIONS
             </Badge>
+            <Sparkles className="h-6 w-6 text-yellow-400" />
           </div>
           
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter mb-6">

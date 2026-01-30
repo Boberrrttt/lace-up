@@ -13,7 +13,6 @@ export function HeroSection() {
       title: "STEP INTO",
       subtitle: "EXcellence",
       description: "Discover the latest collection of premium sneakers designed for athletes who demand the best.",
-      cta: "Shop Now",
       videoUrl: "/Shoe_Ad_Video_Generation.mp4"
     },
     {
@@ -21,7 +20,6 @@ export function HeroSection() {
       title: "UNLEASH YOUR",
       subtitle: "POTENTIAL",
       description: "Engineered for performance, crafted for style. Elevate your game with our cutting-edge footwear.",
-      cta: "Explore Collection",
       videoUrl: "/Sneaker_Ad_Video_Generation.mp4"
     },
     {
@@ -29,7 +27,6 @@ export function HeroSection() {
       title: "BEYOND THE",
       subtitle: "LIMITS",
       description: "Push boundaries and break records with sneakers that combine innovation with iconic design.",
-      cta: "New Arrivals",
       videoUrl: "/Video_of_Shoes_Generated.mp4"
     }
   ];
@@ -94,17 +91,6 @@ export function HeroSection() {
             <p className="text-lg sm:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto opacity-90 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
               {slides[currentSlide].description}
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-              <Button 
-                size="lg" 
-                className="bg-white text-black hover:bg-gray-100 text-lg px-8 py-6 rounded-full font-semibold group"
-              >
-                {slides[currentSlide].cta}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </div>
           </div>
         </div>
       </div>

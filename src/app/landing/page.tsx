@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { HeroSection } from "./sections/hero.section"
-import { CollectionsSection } from "./sections/categories.section"
+import { CollectionsSection } from "./sections/collections.section"
 import { BrandShowcaseSection } from "./sections/brand-showcase.section"
 import { CtaSection } from "./sections/cta.section"
 import { FooterSection } from "@/components/footer.section";
