@@ -4,9 +4,9 @@ import { useCart } from "@shopify/hydrogen-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, Search, ShoppingCart, User } from "@esmate/shadcn/pkgs/lucide-react";
+import { Menu, Search, ShoppingCart } from "@esmate/shadcn/pkgs/lucide-react";
 import { Button } from "@esmate/shadcn/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@esmate/shadcn/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@esmate/shadcn/components/ui/sheet";
 import { Badge } from "@esmate/shadcn/components/ui/badge";
 import { Input } from "@esmate/shadcn/components/ui/input";
 
@@ -107,13 +107,7 @@ export function Header() {
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Search</span>
               </Button>
-
-              {/* Account */}
-              <Button variant="ghost" size="icon" className="hidden sm:flex cursor-pointer">
-                <User className="h-5 w-5" />
-                <span className="sr-only">Account</span>
-              </Button>
-
+              
               {/* Cart */}
               <Link href="/cart" className="relative group">
                 <Button variant="ghost" size="icon" className="p-2 cursor-pointer">
@@ -139,6 +133,7 @@ export function Header() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-full sm:max-w-md p-0">
+                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                   <div className="flex flex-col h-full">
                     <div className="flex items-center space-x-2 px-6 py-6 border-b">
                       <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
@@ -165,19 +160,6 @@ export function Header() {
                         ))}
                       </div>
                     </nav>
-
-                    <div className="border-t px-6 py-6 space-y-3">
-                      <Button variant="outline" className="w-full justify-start h-12">
-                        <User className="mr-3 h-5 w-5" />
-                        Account
-                      </Button>
-                      <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
-                        <Button className="w-full justify-start h-12">
-                          <ShoppingCart className="mr-3 h-5 w-5" />
-                          Cart {!!totalQuantity && `(${totalQuantity})`}
-                        </Button>
-                      </Link>
-                    </div>
                   </div>
                 </SheetContent>
               </Sheet>

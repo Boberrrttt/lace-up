@@ -8,7 +8,7 @@ import { Button } from "@esmate/shadcn/components/ui/button";
 import { Badge } from "@esmate/shadcn/components/ui/badge";
 import { Card, CardContent } from "@esmate/shadcn/components/ui/card";
 import { Separator } from "@esmate/shadcn/components/ui/separator";
-import { Heart, Star, Truck, Shield, RotateCcw, ShoppingCart } from "@esmate/shadcn/pkgs/lucide-react";
+import { Heart, Star, Truck, Shield, RotateCcw, ShoppingCart, Loader2 } from "@esmate/shadcn/pkgs/lucide-react";
 import { useState } from "react";
 
 interface Props {
@@ -19,6 +19,7 @@ export function ProductSingle(props: Props) {
   const { variantId, options, selectOption } = useVariantSelector(props.data);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
 
   const currentImage = props.data.images.nodes[selectedImageIndex];
 
@@ -182,11 +183,24 @@ export function ProductSingle(props: Props) {
               <div className="space-y-4">
                 <AddToCartButton
                   variantId={variantId}
-                  disabled={!variantId}
+                  disabled={!variantId || isAddingToCart}
                   className="w-full h-14 bg-black text-white hover:bg-gray-800 text-lg font-semibold rounded-full transition-all hover:scale-105 flex items-center justify-center gap-3"
+                  onClick={() => {
+                    setIsAddingToCart(true);
+                    setTimeout(() => setIsAddingToCart(false), 2000); // Reset after 2 seconds
+                  }}
                 >
-                  <ShoppingCart className="h-5 w-5" />
-                  Add to Cart
+                  {isAddingToCart ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Adding...
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="h-5 w-5" />
+                      Add to Cart
+                    </>
+                  )}
                 </AddToCartButton>
 
                 {/* Benefits */}

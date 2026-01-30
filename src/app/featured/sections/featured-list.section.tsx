@@ -177,9 +177,9 @@ export function FeaturedList(props: Props) {
 
                 {/* Product Title */}
                 <h3 className="font-semibold mb-2 text-lg">
-                  <Link href={`/products/${node.handle}`} className="hover:text-gray-700 transition">
+                  <span className="hover:text-gray-700 transition cursor-default">
                     {titleize(node.title)}
-                  </Link>
+                  </span>
                 </h3>
 
                 {/* Rating */}
