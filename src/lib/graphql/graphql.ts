@@ -9170,6 +9170,13 @@ export type ProductSingleQueryVariables = Exact<{
 
 export type ProductSingleQuery = { __typename?: 'QueryRoot', product?: { __typename?: 'Product', title: string, description: string, seo: { __typename?: 'SEO', title?: string | null, description?: string | null }, priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', id?: string | null, url: any, altText?: string | null, width?: number | null, height?: number | null }> }, options: Array<{ __typename?: 'ProductOption', id: string, name: string, values: Array<string> }>, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, availableForSale: boolean, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }>, image?: { __typename?: 'Image', id?: string | null } | null }> } } | null };
 
+export type CollectionsQueryVariables = Exact<{
+  first: Scalars['Int']['input'];
+}>;
+
+
+export type CollectionsQuery = { __typename?: 'QueryRoot', collections: { __typename?: 'CollectionConnection', edges: Array<{ __typename?: 'CollectionEdge', node: { __typename?: 'Collection', id: string, title: string, handle: string, description: string, image?: { __typename?: 'Image', url: any, altText?: string | null } | null, products: { __typename?: 'ProductConnection', edges: Array<{ __typename?: 'ProductEdge', node: { __typename?: 'Product', id: string, title: string, handle: string, priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }, featuredImage?: { __typename?: 'Image', url: any, altText?: string | null } | null } }> } } }> } };
+
 export type ProductListQueryVariables = Exact<{
   first: Scalars['Int']['input'];
   after?: InputMaybe<Scalars['String']['input']>;
@@ -9246,6 +9253,43 @@ export const ProductSingleDocument = new TypedDocumentString(`
   }
 }
     `) as unknown as TypedDocumentString<ProductSingleQuery, ProductSingleQueryVariables>;
+export const CollectionsDocument = new TypedDocumentString(`
+    query Collections($first: Int!) {
+  collections(first: $first) {
+    edges {
+      node {
+        id
+        title
+        handle
+        description
+        image {
+          url
+          altText
+        }
+        products(first: 5) {
+          edges {
+            node {
+              id
+              title
+              handle
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              featuredImage {
+                url
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `) as unknown as TypedDocumentString<CollectionsQuery, CollectionsQueryVariables>;
 export const ProductListDocument = new TypedDocumentString(`
     query ProductList($first: Int!, $after: String) {
   products(first: $first, after: $after) {
